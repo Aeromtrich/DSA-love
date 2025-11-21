@@ -1,4 +1,4 @@
-package data.hash;
+package Algorithm.hash;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +13,7 @@ class leecode128 {
             numSet.add(num);
         }
         int longest = 0;
+        // 这里应该遍历hash表 num : numSet
         for (int num : nums) {
             if (!numSet.contains(num - 1 )) {
                 int length = 0;
