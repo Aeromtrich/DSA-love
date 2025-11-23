@@ -39,24 +39,4 @@ public class LevelOrderTraversal {
         return result;
     }
 
-    // main方法测试
-    public static void main(String[] args) {
-        /*
-                构建二叉树:
-                       1
-                      / \
-                     2   3
-                    / \   \
-                   4   5   6
-         */
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right.right = new TreeNode(6);
-
-        List<List<Integer>> res = levelOrder(root);
-        System.out.println("层序遍历结果: " + res);
-    }
 }
