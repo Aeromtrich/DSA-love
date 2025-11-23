@@ -1,15 +1,5 @@
 package data.link;
 
-// 定义链表结点
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}
-
 // leecode 234 判断是否回文链表  // 用数组的解法确实简单的多的多
 public class PalindromeLinkedList {
 

@@ -3,7 +3,7 @@ package Algorithm.greed;
 /**
  * leecode 121 买卖股票的最佳时机
  */
-public class stack {
+public class leecode121 {
     public int maxProfit(int[] prices) {
         int left = 0;  // 买入日
         int right = 1; // 卖出日
@@ -25,7 +25,7 @@ public class stack {
     }
 
     public static void main(String[] args) {
-        stack s = new stack();
+        leecode121 s = new leecode121();
         int[] prices = {7, 1, 5, 3, 6, 4};
         System.out.println(s.maxProfit(prices)); // 输出 5
     }

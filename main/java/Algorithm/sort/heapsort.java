@@ -1,4 +1,4 @@
-package com.Algorithm.sort;
+package Algorithm.sort;
 
 public class heapsort {
     
