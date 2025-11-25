@@ -1,40 +1,33 @@
 package Algorithm.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // leecode 46 全排列 TODO
 class leecode46 {
+
     public List<List<Integer>> permute(int[] nums) {
+        // 基本情况：如果数组为空，返回包含空列表的列表
+        if (nums.length == 0) {
+            List<List<Integer>> result = new ArrayList<>();
+            result.add(new ArrayList<>());
+            return result;
+        }
+
+        // 递归调用：获取剩余元素的排列
+        int[] remainingNums = Arrays.copyOfRange(nums, 1, nums.length);
+        List<List<Integer>> perms = permute(remainingNums);
         List<List<Integer>> res = new ArrayList<>();
-        boolean[] used = new boolean[nums.length];
-        List<Integer> path = new ArrayList<>();
 
-        backtrack(nums, used, path, res);
+        // 对于每一个已有的排列，在每一个可能的位置插入当前元素
+        for (List<Integer> p : perms) {
+            for (int i = 0; i <= p.size(); i++) {
+                List<Integer> pCopy = new ArrayList<>(p);  // 复制列表
+                pCopy.add(i, nums[0]);  // 在位置i插入当前元素
+                res.add(pCopy);
+            }
+        }
         return res;
-    }
-
-    private void backtrack(int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
-        // 如果 path 中的数量 == nums 的长度，说明生成了一个排列
-        if (path.size() == nums.length) {
-            res.add(new ArrayList<>(path)); // 拷贝加入结果
-            return;
-        }
-
-        // 尝试每一个数字
-        for (int i = 0; i < nums.length; i++) {
-            if (used[i]) continue;  // 该数已经被用过，跳过
-
-            // 做选择
-            used[i] = true;
-            path.add(nums[i]);
-
-            // 递归
-            backtrack(nums, used, path, res);
-
-            // 撤销选择（回溯）
-            used[i] = false;
-            path.remove(path.size() - 1);
-        }
     }
 }
