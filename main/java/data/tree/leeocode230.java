@@ -3,7 +3,7 @@ package data.tree;
 import java.util.Stack;
 
 // leecode 230 二叉搜索树中第K小的元素
-class Solution {
+class leeocode230 {
     public int kthSmallest(TreeNode root, int k) {
         int n = 0;
         Stack<TreeNode> stack = new Stack<>();
